@@ -22,11 +22,6 @@
 
 from openerp.openupgrade import openupgrade
 
-column_renames = {
-    'res_company': [
-        ('paper_format', 'rml_paper_format'),
-    ]
-}
 
 
 @openupgrade.migrate()
@@ -37,5 +32,3 @@ def migrate(cr, version):
     openupgrade.check_values_selection_field(
         cr, 'ir_ui_view', 'type',
         ['calendar', 'diagram', 'form', 'gantt', 'graph', 'kanban', 'qweb', 'search', 'tree'])
-    openupgrade.rename_columns(cr, column_renames)
-
